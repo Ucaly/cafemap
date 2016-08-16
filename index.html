@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Neighborhood Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header>
+        <div id="nav-burger-icon">
+            <div>
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+         <h1>My Favorite Cafes in SF</h1>
+        <div class="attribution">Powered by <img src="images/yelp-logo-xsmall.png" style="vertical-align:bottom"></div>
+
+    </header>
+    <div class="container">
+        <nav class="nav">
+            <div class="filter-input">
+                <input id="search" type="search" data-bind="value: filterText, valueUpdate: 'search'">
+                <input type="image" src="images/search.png" class="serach-button" data-bind="click: applyFilter">
+            </div>
+
+            <div id="nav-menu">
+                <ul id="location-list" data-bind="foreach: filteredList">
+                    <li class="nav-item"><a data-bind="text: name, click: $parent.showInfoWindow"></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="flex-column">
+            <div id="map"></div>
+        </div>
+    </div>
+    <div id="modalWindow" class="modal">
+        <div class="modal-content">
+        <span class="close">x</span>
+        <p id="modalMessage"></p>
+    </div>
+    <script src="js/lib/knockout-3.2.0.js"></script>
+    <script src="js/lib/oauth-signature.min.js"></script>
+    <script src="js/lib/jquery-3.1.0.min.js"></script>
+    <script src="js/app.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9IQ9FkM01TIRp9ItNrzSnuiwSNOGp9rc&callback=initMap" onerror="googleMapErrorHandler()"></script>
+</body>
+</html>

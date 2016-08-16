@@ -1,0 +1,213 @@
+    html, body {
+        font-family: 'Verdana', sans-serif;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        padding: 0 0 .5em;
+    }
+    h1 {
+        text-align: right;
+        padding-right: 30px;
+        color: #036;
+    }
+    input {
+        height: 22px;
+        float: left;
+    }
+    input[type=search] {
+        width: 180px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        background-color: white;
+    }
+    #map {
+        height: 100%;
+    }
+    .container {
+        display: flex;
+    }
+    .attribution {
+        font-size: 11px;
+        vertical-align: bottom;
+        text-align: right;
+        padding-right: 10px;
+    }
+    .flex-column {
+        flex: 1;
+        width: 100%;
+        height: 800px;
+    }
+    .filter-input {
+        padding: .5em;
+        margin-bottom: 20px;
+    }
+    .search-button {
+        padding: 20px;
+    }
+    .nav {
+        width: 230px;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin: 0 0 .2em 0;
+    }
+    .infoWindow {
+        width: 160px;
+        margin-left: 24px;
+        padding: 5px;
+        border-radius: 6px 6px 6px 6px;
+        background-color: lightgray;
+        border: 1px solid gray;
+        text-align: center;
+    }
+
+
+    #nav-menu {
+        padding: .2em;
+        margin: .2em;
+    }
+
+    #nav-menu ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    #nav-menu li {
+        margin: 0 0 .2em 0;
+    }
+
+    #nav-menu a {
+        display: block;
+        color: #FFF;
+        background-color: #036;
+        width: 12em;
+        padding: .2em .8em;
+        text-decoration: none;
+    }
+
+    #nav-menu a:hover {
+        background-color: #369;
+        color: #FFF;
+    }
+    #nav-burger-icon {
+        display: none;
+        position: absolute;
+        left: 18px;
+        top: 18px;
+        width: 30px;
+        height: 25px;
+        cursor: pointer;
+    }
+    #nav-burger-icon div {
+        position: relative
+    }
+    #nav-burger-icon span {
+        display: block;
+        position: absolute;
+        width: 100%;
+        border-bottom: solid 3px #999;
+        -webkit-transition: .35s ease-in-out;
+        -moz-transition: .35s ease-in-out;
+        transition: .35s ease-in-out;
+    }
+    #nav-burger-icon span:nth-child(1) {top: 0;}
+    #nav-burger-icon span:nth-child(2) {top: 11px;}
+    #nav-burger-icon span:nth-child(3) {top: 22px;}
+
+    #modalMessage {
+        width:100%;
+        height: 100%;
+        margin-top: 30%;
+    }
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(20,50,70); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal error dialog */
+    .modal-content {
+        border-radius: 25px;
+        background: #5f9ea0;
+        margin: 20% auto;
+        padding: 30px;
+        border: 3px solid #5f9ea0;
+        width: 250px;
+        height: 170px;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    /* Close button for the error dialog */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    /* For tablets */
+    @media screen and (max-width: 768px) {
+        h1 {
+            margin: 0;
+            font-size: 25px;
+            padding-top: 10px;
+        }
+        #nav-burger-icon {
+            display: block;
+        }
+        .open-nav #nav-burger-icon span:nth-child(1) {
+            top: 11px;
+            -webkit-transform:rotate(-45deg);
+            transform:rotate(-45deg)
+        }
+        .open-nav #nav-burger-icon span:nth-child(2),
+        .open-nav #nav-burger-icon span:nth-child(3) {
+            top: 11px;
+            -webkit-transform:rotate(45deg);
+            transform:rotate(45deg)
+        }
+
+        .nav {
+            z-index: 10;
+            background-color: #fff;
+            width: 220px;
+            position: absolute;
+            -webkit-transform: translate(-350px, 0);
+            transform: translate(-350px, 0);
+            transition: transform 0.3s ease;
+        }
+        .nav.open {
+            -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+        }
+        .nav-item {
+            display: list-item;
+            border-bottom: 1px solid #E0E0E0;
+            width: 100%;
+            text-align: left;
+        }
+    }
+    /* For phones */
+    @media screen and (max-width: 420px) {
+        h1 {
+            font-size: 18px;
+        }
+    }
