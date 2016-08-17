@@ -164,7 +164,7 @@ function populateInfoWindow(marker, infoWindow) {
 
 function generateNonce() {
     return (Math.floor(Math.random() * 1e12).toString());
-};
+}
 // Call Yelp API for the selected marker
 function getYelpData(marker, infoWindow) {
     var parameters = {
@@ -180,25 +180,25 @@ function getYelpData(marker, infoWindow) {
 
     var base_url = 'https://api.yelp.com/v2/phone_search';
 
-        var encodedSignature = oauthSignature.generate('GET', base_url, parameters, 'Q9pIusKHyHoQ78x9UCFCGjLbtDk', '9vRoYE3HxkJuWGTKgNG0l3nxqgU');
-        parameters.oauth_signature = encodedSignature;
-        var settings = {
-            url: base_url,
-            data: parameters,
-            cache: true,
-            dataType: 'jsonp',
-            timeout: 1000,
-            success: function(results) {
-                var cafeData = results.businesses[0];
-                infoWindow.setContent('');
-                infoWindow.setContent("<div class='infoWindow'><p style='font-size:20px'>" + cafeData.name + "</p><p>Yelp rating:  <span style='font-size:18px;font-weight:bold'>" + cafeData.rating +"</span></p><p><a href='" + cafeData.url + "' target='_blank'>  More info</a></p><img src='" + cafeData.image_url + "' alt='" + cafeData.name + "'/></div>");
-            },
-            error : function(error) {
-                //console.log(error);
-                showErrorMessage();
-            }
-        };
-        $.ajax(settings);
+    var encodedSignature = oauthSignature.generate('GET', base_url, parameters, 'Q9pIusKHyHoQ78x9UCFCGjLbtDk', '9vRoYE3HxkJuWGTKgNG0l3nxqgU');
+    parameters.oauth_signature = encodedSignature;
+    var settings = {
+        url: base_url,
+        data: parameters,
+        cache: true,
+        dataType: 'jsonp',
+        timeout: 1000,
+        success: function(results) {
+            var cafeData = results.businesses[0];
+            infoWindow.setContent('');
+            infoWindow.setContent("<div class='infoWindow'><p style='font-size:20px'>" + cafeData.name + "</p><p>Yelp rating:  <span style='font-size:18px;font-weight:bold'>" + cafeData.rating +"</span></p><p><a href='" + cafeData.url + "' target='_blank'>  More info</a></p><img src='" + cafeData.image_url + "' alt='" + cafeData.name + "'/></div>");
+        },
+        error : function(error) {
+            //console.log(error);
+            showErrorMessage();
+        }
+    };
+    $.ajax(settings);
 }
 // For tablet and mobile. Close the list when an item was clicked.
 function closeNavListIfOpened() {
